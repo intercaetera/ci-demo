@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [master]
 
+env:
+  EB_VERSION_LABEL: ci-demo-${{github.run_number}}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -45,6 +48,6 @@ jobs:
         application_name: ci-demo
         environment_name: ci-demo-env
 
-        version_label: 1
+        version_label: {{ env.EB_VERSION_LABEL }}
         region: "eu-north-1"
         deployment_package: deploy.zip
