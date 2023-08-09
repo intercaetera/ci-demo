@@ -40,7 +40,7 @@ jobs:
       run: zip -r deploy.zip . -x '*.git*'
 
     - name: deploy
-      uses: einaregilsson/beanstalk-deploy@v20
+      uses: einaregilsson/beanstalk-deploy@v21
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -49,5 +49,6 @@ jobs:
         environment_name: ci-demo-env
 
         version_label: ${{ env.EB_VERSION_LABEL }}
+        use_existing_version_if_available: true
         region: "eu-north-1"
         deployment_package: deploy.zip
