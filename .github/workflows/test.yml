@@ -48,6 +48,6 @@ jobs:
         application_name: ci-demo
         environment_name: ci-demo-env
 
-        version_label: {{ env.EB_VERSION_LABEL }}
+        version_label: ${{ env.EB_VERSION_LABEL }}
         region: "eu-north-1"
         deployment_package: deploy.zip
